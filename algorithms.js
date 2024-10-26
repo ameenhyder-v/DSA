@@ -71,6 +71,8 @@ function factorial(n) {
 //  A prime number is a whole number greater than 1 that has exactly two distinct divisors: 1 and itself. This means it cannot be divided evenly by any other numbers.
 //  For example, 2, 3, 5, 7, and 11 are prime numbers because they have no divisors other than 1 and themselves.
 
+// complexity is O(n) - linear time complexity!
+
 function isPrime(n) {
     if(n < 2) return false;
 
@@ -85,7 +87,31 @@ function isPrime(n) {
 // console.log(isPrime(5));  // true
 // console.log(isPrime(4));  // false
 // console.log(isPrime(31)); // true
+// ====================================================================================================
+
 //  todo - Power of two! 
+//? Problem - give a positive integer "n", determine if the number is a power of 2 or not 
+//  An integer is a power of two if there exists an integer "x" such that "n" === 2^x
+// complexity is Big-O(n), - linear time complexity!
+
+
+function isPowerOfTwo(n) {
+    if (n < 1) {
+        return false;
+    }
+
+    while (n > 1) {
+        if (n % 2 !== 0) {
+            return false;
+        }
+        n = n / 2;
+    }
+    return true;
+}
+
+// console.log(isPowerOfTwo(1))   // true
+// console.log(isPowerOfTwo(2))   // true
+// console.log(isPowerOfTwo(5))   //false
 //  todo - Recursion!
 //  todo - Fibonacci sequence with recursion!
 //  todo - Factorial of a number with recursion!
