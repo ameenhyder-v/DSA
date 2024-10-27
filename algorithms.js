@@ -117,10 +117,10 @@ function isPowerOfTwo(n) {
 // ==============================================================================================================================================================
 
 
-//! Selection Sorting algorithm  
-// more sorting will discuss in the  sorting section 
+//! Simple Sorting algorithm my logic. 
+// more sorting will discuss in the  sorting section sort.js file
 //* Time complexity is O(n²) time complexity and Space complexity is O(1), as sorting is done in place
-// const sam = [1, 2, 3, 4, 4, 5, 5, 5, 3, 3, 4];
+const sam = [1, 2, 3, 4, 4, 5, 5, 5, 3, 3, 4, 4, 6, 8, 9, 23, 77, 34, 64, 22, 6, 7, 7, 12, 86, 66, 77, 88, 90, 24, 28, 92, 20];
 
 for (let i = 0; i < sam.length - 1; i++) {
     for (let j = i + 1; j < sam.length; j++) {
@@ -132,8 +132,7 @@ for (let i = 0; i < sam.length - 1; i++) {
     }
 }
 
-// console.log(sam); // Sorted array
-
+console.log(sam); // Sorted array
 
 // ======================================================================================================================================
 

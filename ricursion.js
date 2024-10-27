@@ -1,4 +1,4 @@
-//  todo - Recursion!
+//! ********************************************************************** Recursion in JS! *************************************************************************************************
 //? What is Recursion? 
 //* Recursion is a problem solving technique where the solution depends on solutions to smaller instances of the same problem
 //* Recursion is when a function calling itself
@@ -24,28 +24,35 @@
 
 // printDic(5) // 5 4 3 2 1
 
-//  todo - Fibonacci sequence with recursion!
-// function recursivefivonacci(n) {
-//     if (n < 2 ){
-//         return n
-//     }
-//     return recursivefivonacci(n - 1) + recursivefivonacci(n - 2);
-// }
+//! Problems solving with Ricursion
 
-// console.log(recursivefivonacci(3));
-// console.log(recursivefivonacci(6));
-// console.log(recursivefivonacci(1));
-// console.log(recursivefivonacci(2));
+//  todo - Fibonacci sequence with recursion!
+
+function recursiveFibonacci(n) {
+    if (n < 2 ){
+        return n
+    }
+    return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+}
+
+console.log(recursiveFibonacci(3));  // 2
+console.log(recursiveFibonacci(6));  // 8
+console.log(recursiveFibonacci(1));  // 1
+console.log(recursiveFibonacci(2));  // 1
+
+//* Time Complexity: Big O(2^n) and the Space Complexity: Big O(n) - when using recursive approch
+//* Recursive approch is not best for finding the fibonacci it is better to use the iterative approch
 
 //  todo - Factorial of a number with recursion!
+
 // function recursiveFactorial(n) {
 //     if(n <= 1)  return 1
 
 //     return n * recursiveFactorial(n - 1);
 // }
 
-// console.log(recursiveFactorial(5))
-// console.log(recursiveFactorial(4))
-// console.log(recursiveFactorial(12))
-// console.log(recursiveFactorial(6))
-// console.log(recursiveFactorial(9))
+// console.log(recursiveFactorial(5))   // 120
+// console.log(recursiveFactorial(4))   //24
+// console.log(recursiveFactorial(12))  // 479001600
+// console.log(recursiveFactorial(6))   // 720
+// console.log(recursiveFactorial(9))   // 362880
