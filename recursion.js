@@ -40,8 +40,8 @@
 // console.log(recursiveFibonacci(1));  // 1
 // console.log(recursiveFibonacci(2));  // 1
 
-//* Time Complexity: Big O(2^n) and the Space Complexity: Big O(n) - when using recursive approch
-//* Recursive approch is not best for finding the fibonacci it is better to use the iterative approch
+//* Time Complexity: Big O(2^n) and the Space Complexity: Big O(n) - when using recursive approch!
+//* Recursive approch is not best for finding the fibonacci it is better to use the iterative approch ( for loop or while loop)!
 
 //  todo - Factorial of a number with recursion!
 
@@ -58,11 +58,15 @@
 // console.log(recursiveFactorial(9))   // 362880
 
 
-// // print 0 to n 
+// print 0 to n 
 // function printn(n, i) {
-    
+
 //     if(n < i) return;
 //     console.log(i)
 //     printn(n, i + 1)    
 // }
 // printn(100, 34)
+// printn(23, 0)
+
+//? String reverse in recursion 
+
