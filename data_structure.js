@@ -58,4 +58,46 @@
 //* Set can contain a mix of different data types. You can store strings, booleans, numbers or even objects all in the same set
 //* Sets are dynamically sized. You don't hove to declare the size of a set before creating it
 //* Sets do not maintain an insertion order
-//* Sets are iterables.
+//* Sets are iterables. They can be used with a "for....of... loop"
+
+//! Set vs Array
+//* Array can contain duplicate values whereas Sets cannot 
+//* Insertion Order is maintained in arrays but it is not the case with sets 
+//* Searching and deleting an element in the set is faster compared to arrays
+
+// const set = new Set([1,2,3])
+
+// set.add(4)
+// console.log(set.has(6)) // false
+// set.delete(3)
+// set.clear()
+// for(const item of set) {
+//      console.log(item)
+// }
+
+
+//! Map Data Structure 
+
+//* A Map is an unordered collection of key-value pairs. Both keys and values can be of any data type
+//* To retrieve a value, you can use the corresponding key
+//* Maps are iterables. They can be used with a for...of... loop
+
+//! Map vs Object
+
+//* Objects are unordered where as maps are ordered 
+//* Keys in Object can only be string or symbol type whereas in maps, they can be of any type 
+//* An object has a prototype and may contain a few default keys which may collide with your own keys if you're not careful. A map on the other hand does not contain any keys by default
+//* Objects are not iterables  where as maps are iterables
+//* we can store functionaliuty to an object where as maps are restricted to just storing data
+
+// const map = new Map([["a", 1], ["b", 2]]);
+
+// map.set("c", 3);
+// console.log(map.has("a"))
+// console.log(map.size)
+// map.clear()
+
+// for (const [key, value] of map) {
+//     console.log(`${key}: ${value}`);
+// }
+

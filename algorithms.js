@@ -1,15 +1,15 @@
-//! ******************************************************* Algorithms ******************************************************************** !\\
-//! Now moving to the Math Algorithms
-//? what we are going to look? 
+// ! ******************************************************* Algorithms ******************************************************************** !\\
+// ! Now moving to the Math Algorithms
+// ? what we are going to look? 
 //  todo - Fibonacci Sequence!
 
-//? Problem - Give a number "n", find the first "n" elements of the Fibonacci sequence?
+// ? Problem - Give a number "n", find the first "n" elements of the Fibonacci sequence?
 //  In mathematics, the fibonacci sequence is a sequence in which each number is the sum of the preceding ones.
 //  The first two numbers in the sequence are 0 and 1;
 //  fibonacci(2) = [0,1]
 //  fibonacci(3) = [0, 1, 1]
 //  fibonacci(7) = [0, 1, 1, 2, 3, 5, 8]
-//* simple solution ( this solution will take Big-O(n) linear time complexity and space complexity also Big-O(n) )
+// * simple solution ( this solution will take Big-O(n) linear time complexity and space complexity also Big-O(n) )
 
 function fibo(n) {
     const fib = [0, 1];
