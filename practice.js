@@ -134,3 +134,27 @@
 
 
 
+
+function recfibo(n) {
+    if( n < 2 ) {
+        return n
+    }
+
+    return recfibo(n - 1) + recfibo(n - 2);
+}
+
+
+console.log(recfibo(6))
+
+
+
+
+function recfac(n) {
+    if(n <= 1) return 1
+
+    return n * recfac(n - 1)
+}
+
+console.log(recfac(5))
+
+

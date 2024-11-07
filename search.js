@@ -46,6 +46,8 @@
 //     return "Not Found"
 // }
 
+
+
 console.log(binarySearch([-5, -3, 2, 4, 5, 6, 7, 56], 5))
 console.log(binarySearch([-5, -3, 2, 4, 5, 6, 7, 56], 7))
 console.log(binarySearch([-5, -3, 2, 4, 5, 6, 7, 56], -5))
@@ -74,9 +76,9 @@ console.log(binarySearch([-5, -3, 2, 4, 5, 6, 7, 56], 45))
 //* Binary search with recursion
 //* Time Complexity of this one is also Big-O(log n) and Space Complexity is also now Big-O(log n)
 
-function binarySearch(arr, t) {
-    return search(arr, t, 0, arr.length - 1)
-}
+// function binarySearch(arr, t) {
+//     return search(arr, t, 0, arr.length - 1)
+// }
 // function search(arr, t, start, end) {
 //     if (start > end) {
 //         return "Not Found"
@@ -110,3 +112,23 @@ function binarySearch(arr, t) {
 //         return search(arr, t, mid + 1, end)
 //     }
 // }
+
+
+// function recSearch(arr, t, start, end) {
+//     if(start > end) {
+//         return "not found"
+//     }
+
+//     let mid = Math.floor((start + end) / 2)
+//     if(t == arr[mid]){
+//         return `founded at position ${mid}`
+//     }
+
+//     if(t > arr[mid]) {
+//         return recSearch(arr, t, mid + 1, end)
+//     } else if (t > arr[mid]) {
+//         return recSearch(arr, t, start, mid - 1)
+//     }
+// }
+
+

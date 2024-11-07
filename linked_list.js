@@ -192,6 +192,88 @@ class LinkedList {
     }
 
 
+    // reverse() {
+    //     let curr = this.head
+    //     let arr = []
+
+    //     while(curr) {
+    //         arr.unshift(curr.data);
+    //         curr = curr.next;
+    //     }
+
+    //     return arr
+    // }
+
+    // reverse () {
+    //     let prev = null;
+    //     let curr = this.head;
+    //     while(curr) {
+    //         let next = curr.next;
+    //         curr.next = prev;
+    //         prev = curr;
+    //         curr = next;
+    //     }
+
+    //     this.head = prev
+
+    //     return "reversed"
+    // }
+
+
+    // reverse() {
+    //     let prev = null;
+    //     let curr = this.head;
+
+    //     while (curr) {
+    //         let next = curr.next;
+    //         curr.next = prev;
+    //         prev = curr;
+    //         curr = next;
+    //     }
+
+    //     this.head = prev;
+    //     return "reversed"
+    // }
+
+
+    // reverse() {
+    //     let prev = null;
+    //     let curr = this.head;
+        
+    //     while (curr) {
+    //         let temp = curr.next;
+    //         curr.next = prev;
+    //         prev = curr;
+    //         curr = temp;
+    //     }
+
+    //     this.head = prev;
+    //     return "reversed"
+    // }
+    
+
+    // reverse() {
+    //     let arr =[]
+    //     let curr = this.head
+    //     while(curr) {
+    //         arr.unshift(curr.data)
+    //         curr = curr.next;
+    //     }
+
+    //     return arr
+    // }
+
+    // isPalindrom() {
+    //     let curr = this.head;
+    //     let arr = [];
+
+    //     while(curr) {
+    //         arr.push(curr.data);
+    //         curr = curr.next
+    //     }
+
+    //     return arr === arr.reverse()
+    // }
 
 }
 
@@ -216,3 +298,14 @@ console.log(list.findIndex(40));
 console.log(list.findIndex(1))
 
 list.print();
+
+
+console.log(list.reverse())
+
+list.print();
+
+
+console.log(list.reverse())
+list.print();
+
+
