@@ -1,44 +1,44 @@
-// // class Node {
-// //     constructor(value) {
-// //         this.value = value;
-// //         this.next = null;
-// //     }
-// // }
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
 
-// // class LinkedList {
-// //     constructor () {
-// //         this.head = null;
-// //         this.size = 0;
-// //     }
+// class LinkedList {
+//     constructor () {
+//         this.head = null;
+//         this.size = 0;
+//     }
 
-// //     append(data) {
-// //         let node = new Node(data)
+//     append(data) {
+//         let node = new Node(data)
 
-// //         if(!this.head) {
-// //             this.head = node;
-// //         } else {
-// //             let curr = this.head;
-// //             while (curr.next) {
-// //                 curr = curr.next;
-// //             }
+//         if(!this.head) {
+//             this.head = node;
+//         } else {
+//             let curr = this.head;
+//             while (curr.next) {
+//                 curr = curr.next;
+//             }
 
-// //             curr.next = node;
-// //         }
-// //         this.size++;
-// //     }
+//             curr.next = node;
+//         }
+//         this.size++;
+//     }
 
-// //     prepend(data) {
-// //         let node = new Node(data);
+//     prepend(data) {
+//         let node = new Node(data);
 
-// //         if(!this.head){
-// //             this.head = node;
-// //         } else {
-// //             node.next = this.head;
-// //             this.head = node
-// //         }
-// //         this.size++
-// //     }
-// // }
+//         if(!this.head){
+//             this.head = node;
+//         } else {
+//             node.next = this.head;
+//             this.head = node
+//         }
+//         this.size++
+//     }
+// }
 
 
 // class Node {
@@ -135,26 +135,26 @@
 
 
 
-function recfibo(n) {
-    if( n < 2 ) {
-        return n
-    }
+// function recfibo(n) {
+//     if( n < 2 ) {
+//         return n
+//     }
 
-    return recfibo(n - 1) + recfibo(n - 2);
-}
-
-
-console.log(recfibo(6))
+//     return recfibo(n - 1) + recfibo(n - 2);
+// }
 
 
+// console.log(recfibo(6))
 
 
-function recfac(n) {
-    if(n <= 1) return 1
 
-    return n * recfac(n - 1)
-}
 
-console.log(recfac(5))
+// function recfac(n) {
+//     if(n <= 1) return 1
+
+//     return n * recfac(n - 1)
+// }
+
+// console.log(recfac(5))
 
 
