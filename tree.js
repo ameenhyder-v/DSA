@@ -60,13 +60,23 @@ class BST {
             } else if (value > current.value) {
                 current = current.right;
             } else {
-                return "contain"
+                return true
             }
         }
-        return "not contain"
+        return false
     }
 
+    containsRecursive(value, node = this.root) {
+        if (!node) return false;
 
+        if (value < node.value) {
+            return this.containsRecursive(value, node.left);
+        } else if (value > node.value) {
+            return this.containsRecursive(value, node.right);
+        } else {
+            return true;
+        }
+    }
 
 
     inOrder(node = this.root) {
@@ -93,45 +103,44 @@ class BST {
         }
     }
 
-    remove(val) {
-        this.root = this.removeHelper(this.root, val);
-    }
-
-    removeHelper(node, val) {
+    remove(val, node = this.root) {
         if (!node) return null;
+
         if (val < node.value) {
-            node.left = this.removeHelper(node.left, val);
-            return node
+            node.left = this.remove(val, node.left);
         } else if (val > node.value) {
-            node.right = this.removeHelper(node.right, val);
-            return node
+            node.right = this.remove(val, node.right)
         } else {
-            if (!node.left && !node.right) {
-                node = null;
-                return node;
-            }
-            if (!node.left) {
-                node = node.right;
-                return node;
+            if(!node.left && !node.right) {
+                return null;
             }
 
-            if (!node.right) {
-                node = node.left;
-                return node;
-            }
+            if (!node.left) return node.right;
+            if (!node.right) return node.left;
 
-            const minrightNode = this.findMinNode(node.right)
+            const minrightNode = this.findMinNode(node.right);
             node.value = minrightNode.value;
-            node.right = this.removeHelper(node.right, minrightNode.value)
-            return node;
+            node.right = this.remove(minrightNode.value, node.right);
         }
+
+        return node;
     }
+
 
     findMinNode(node) {
         if (!node.left) {
             return node;
         }
         return this.findMinNode(node.left);
+    }
+
+    getHight(node = this.root) {
+        if (!node) return 0;
+
+        let leftHight = this.getHight(node.left);
+        let rightHight = this.getHight(node.right);
+
+        return Math.max(leftHight, rightHight) + 1;
     }
 }
 
@@ -152,8 +161,17 @@ bst.insert(30);
 bst.insert(1);
 bst.insert(4);
 
+// bst.inOrder()
+console.log('depth : ', bst.getHight())
+console.log('contains 30 before: ' , bst.containsRecursive(30))
+
 // bst.preOrder()
 // bst.postOrder()
 bst.remove(10)
+bst.remove(30)
 bst.inOrder()
+console.log('contains 30 after: ', bst.containsRecursive(30))
+console.log('depth : ', bst.getHight())
+
+
 
