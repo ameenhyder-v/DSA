@@ -127,6 +127,30 @@ class BST {
     }
 
 
+    r(val, node = this.root) {
+        if (!node) return null;
+
+        if (val < node.value) {
+            node.left = this.r(val, node.left)
+        } else if (val > node.value) {
+            node.right = this.r(val, node.right);
+        } else {
+            if(!node.left && !node.right) {
+                return null;
+            }
+
+            if (!node.left) return node.right;
+            if (!node.right) return node.left;
+
+            const minrightNode = this.findMinNode(node.right);
+
+            node.value = minrightNode.value;
+            node.right = this.remove(minrightNode.value, node.right);
+        }
+        return node;
+    }
+
+
     findMinNode(node) {
         if (!node.left) {
             return node;
@@ -141,6 +165,20 @@ class BST {
         let rightHight = this.getHight(node.right);
 
         return Math.max(leftHight, rightHight) + 1;
+    }
+
+    findMinValue(node = this.root) {
+        while(node && node.left) {
+            node = node.left;
+        }
+        return node ? node.value : null;
+    }
+
+    findMaxValue(node = this.root) {
+        while(node && node.right) {
+            node = node.right;
+        }
+        return node ? node.value : null;
     }
 }
 
@@ -172,6 +210,6 @@ bst.remove(30)
 bst.inOrder()
 console.log('contains 30 after: ', bst.containsRecursive(30))
 console.log('depth : ', bst.getHight())
-
-
+console.log(bst.findMinValue());
+console.log(bst.findMaxValue());
 
