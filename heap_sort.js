@@ -34,4 +34,4 @@ function heapSort(arr) {
 
 const array = [12, 11, 13, 5, 6, 7];
 heapSort(array);
-console.log("Sorted array is:", array); 
+console.log("Sorted array is:", array);  // Sorted array is: [ 5, 6, 7, 11, 12, 13 ]

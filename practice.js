@@ -298,8 +298,7 @@
 //     value: 'd'
 // };
 
-
-// let e = {
+//  let e = {
 //     value: "e"
 // };
 
@@ -333,3 +332,216 @@
 // a.two.three = i;
 
 // console.log(a)
+
+
+// function heapify(arr, n, i) {
+//     let largest = i;
+//     let left = 2 * i + 1;
+//     let right = 2 * i + 2;
+
+//     if (left < n && arr[largest] < arr[left]) {
+//         largest = left;
+//     }
+
+//     if (right < n && arr[largest] < arr[right]) {
+//         largest = right;
+//     }
+
+//     if (largest !== i) {
+//         [arr[i], arr[largest]] = [arr[largest], arr[i]];
+//         heapify(arr, n, largest);
+//     }
+// }
+// function heapSort(arr) {
+//     let n = arr.length;
+
+//     for(let i = Math.floor(n / 2) - 1; i > 0; i--) {
+//         heapify(arr, n, i);
+//     }
+    
+//     for(let i = n - 1; i > 0; i--) {
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         heapify(arr, i, 0);
+//     }
+// }
+
+const array = [12, 11, 13, 3, 23, 89, 44, 223];
+heapSort(array);
+console.log("Sorted array is:", array); 
+
+
+class Node {
+    constructor (value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BST {
+    constructor() {
+        this.root = null;
+    }
+
+    insert (value) {
+        let node = new Node(value);
+        if(!this.root) {
+            this.root = node;
+        } else {
+            let current = this.root;
+            while(true) {
+                if(value < current.value) {
+                    if(!current.left){
+                        current.left = node;
+                        break;
+                    }
+                    current = current.left;
+                } else if (value > current.value) {
+                    if (!current.right) {
+                        current.right = node;
+                        break;
+                    }
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    contains(value, node = this.root) {
+        if(!node) return false;
+
+        if (value < node.value) {
+            return this.contains(value, node.left);
+        } else if (value > node.value) {
+            return this.contains(value, node.right);
+        } else {
+            return true;
+        }
+    }
+
+    inOrder(node = this.root) {
+        if(node) {
+            this.inOrder(node.left);
+            console.log(node.value);
+            this.inOrder(node.right);
+        }
+    }
+
+    preOrder(node = this.root) {
+        if (node) {
+            console.log(node.value);
+            this.preOrder(node.left);
+            this.preOrder(node.right);
+        }
+    }
+
+    postOrder(node = this.root) {
+        if (node) {
+            this.postOrder(node.left);
+            this.postOrder(node.right);
+            console.log(node.value);
+        }
+    }
+
+    findMinNode(node) {
+        if(!node.left) {
+            return node;
+        }
+        return this.findMinNode(node.left);
+    }
+
+    remove(val, node = this.root) {
+        if(!node) return null;
+
+        if(val < node.value) {
+            node.left = this.remove(val, node.left);
+        } else if (val > node.value) {
+            node.right = this.remove(val, node.right);
+        } else {
+            if(!node.left && !node.right) return null;
+
+            if(!node.left) return node.right;
+            if(!node.right) return node.left;
+
+            const minrightNode = this.findMinNode(node.right);
+            node.value = minrightNode.value;
+            node.right = this.remove(minrightNode.value, node.right);
+        }
+
+        return node;
+    }
+
+    getHight(node = this.root) {
+        if (!node) return 0;
+        let leftHight = this.getHight(node.left);
+        let rightHight = this.getHight(node.right);
+
+        return Math.max(leftHight, rightHight) + 1;
+    }
+
+    findMaxVal(node = this.root) {
+        let secondLargest = null;
+        while (node && node.right) {
+            secondLargest = node;
+            node = node.right;
+        }
+
+        return node ? [node.value, secondLargest.value] : null;
+    }
+}
+
+
+
+const bst = new BST();
+
+bst.insert(28);
+bst.insert(20);
+bst.insert(30);
+bst.insert(21);
+bst.insert(12);
+bst.insert(35);
+bst.insert(25);
+bst.insert(39);
+bst.insert(44);
+bst.insert(29);
+bst.remove(44);
+bst.remove(28);
+
+bst.inOrder()
+// bst.postOrder()
+// bst.preOrder();
+console.log(bst.getHight())
+console.log(bst.findMaxVal())
+
+
+function heapify(arr, n, i) {
+    let largest = i;
+    const leftChild = 2 * i + 1;
+    const rightChild = 2 * i + 2;
+
+    if (leftChild < n && arr[leftChild] > arr[largest]) {
+        largest = leftChild;
+    }
+
+    if (rightChild < n && arr[rightChild] > arr[largest]) {
+        largest = rightChild;
+    }
+
+    if(largest !== i) {
+        [arr[i], arr[largest]] = [arr[largest], arr[i]];
+        heapify(arr, n, largest);
+    }
+}
+
+function heapSort(arr) {
+    let n = arr.length;
+
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    for (let i = n - 1; i > 0; i--) {
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+        heapify(arr, i, 0)
+    }
+}

@@ -66,13 +66,13 @@ class BST {
         return false
     }
 
-    containsRecursive(value, node = this.root) {
+    search(value, node = this.root) {
         if (!node) return false;
 
         if (value < node.value) {
-            return this.containsRecursive(value, node.left);
+            return this.search(value, node.left);
         } else if (value > node.value) {
-            return this.containsRecursive(value, node.right);
+            return this.search(value, node.right);
         } else {
             return true;
         }
@@ -126,31 +126,6 @@ class BST {
         return node;
     }
 
-
-    r(val, node = this.root) {
-        if (!node) return null;
-
-        if (val < node.value) {
-            node.left = this.r(val, node.left)
-        } else if (val > node.value) {
-            node.right = this.r(val, node.right);
-        } else {
-            if(!node.left && !node.right) {
-                return null;
-            }
-
-            if (!node.left) return node.right;
-            if (!node.right) return node.left;
-
-            const minrightNode = this.findMinNode(node.right);
-
-            node.value = minrightNode.value;
-            node.right = this.remove(minrightNode.value, node.right);
-        }
-        return node;
-    }
-
-
     findMinNode(node) {
         if (!node.left) {
             return node;
@@ -180,6 +155,17 @@ class BST {
         }
         return node ? node.value : null;
     }
+
+    balenced(node = this.root) {
+        if (!node) {
+            return {heigth : 0, isBalenced : true}
+        }
+
+        const left = this.balenced(node.left);
+        const right = this.balenced(node.right);
+        const height = Math.max(left.heigth, right.height) + 1
+        const isBalenced = left.isBalenced && right.isBalenced && Math.abs(left.heigth - right.heigth) <= 1
+    }
 }
 
 let bst = new BST();
@@ -201,14 +187,14 @@ bst.insert(4);
 
 // bst.inOrder()
 console.log('depth : ', bst.getHight())
-console.log('contains 30 before: ' , bst.containsRecursive(30))
+console.log('contains 30 before: ' , bst.search(30))
 
 // bst.preOrder()
 // bst.postOrder()
 bst.remove(10)
 bst.remove(30)
 bst.inOrder()
-console.log('contains 30 after: ', bst.containsRecursive(30))
+console.log('contains 30 after: ', bst.search(30))
 console.log('depth : ', bst.getHight())
 console.log(bst.findMinValue());
 console.log(bst.findMaxValue());
